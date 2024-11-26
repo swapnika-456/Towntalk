@@ -19,12 +19,32 @@
 // }
 // }
 import 'dart:async';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:towntalk/firebase_options.dart';
+import 'package:towntalk/pages/auth_page.dart';
 import 'package:towntalk/pages/login_page.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'firebase_options.dart';
 
-void main() {
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options:DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(MyApp());
 }
+/*void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+
+  // Sign out the user on app start
+  await FirebaseAuth.instance.signOut(); // Force user to log out
+
+  runApp(MyApp());
+}*/
+
 
 class MyApp extends StatelessWidget {
   @override
@@ -35,7 +55,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: SplashScreen(), // SplashScreen is the first screen to show
+      home: SplashScreen(), 
+    // SplashScreen is the first screen to show
     );
   }
 }
@@ -52,7 +73,7 @@ class _SplashScreenState extends State<SplashScreen> {
     Timer(Duration(seconds: 4), () {
       // Navigate to the login page after 3 seconds
       Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (context) => LoginPage()),
+        MaterialPageRoute(builder: (context) => AuthPage()),
       );
     });
   }

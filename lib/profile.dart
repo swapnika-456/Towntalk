@@ -17,7 +17,7 @@ import 'package:flutter/material.dart';
 //   }
 // }
 
-class ProfilePageUi extends StatefulWidget {
+/*class ProfilePageUi extends StatefulWidget {
   @override
   State<ProfilePageUi> createState() => _ProfilePageUiState();
 }
@@ -96,4 +96,107 @@ class _ProfilePageUiState extends State<ProfilePageUi> {
          
     );
  }
+}*/
+import 'package:flutter/material.dart';
+
+class ProfilePageUi extends StatefulWidget {
+  @override
+  State<ProfilePageUi> createState() => _ProfilePageUiState();
 }
+
+class _ProfilePageUiState extends State<ProfilePageUi> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: ListView(
+        children: <Widget>[
+          // Profile Header
+          Container(
+            color: Colors.grey.shade200,
+            padding: const EdgeInsets.all(20.0),
+            child: Column(
+              children: <Widget>[
+                CircleAvatar(
+                  radius: 50,
+                  backgroundColor: Colors.grey.shade400,
+                  child: const Icon(
+                    Icons.person,
+                    size: 60,
+                    color: Colors.white,
+                  ),
+                ),
+                const SizedBox(height: 20),
+                const Text(
+                  "Harish Bollampally",
+                  style: TextStyle(fontSize: 22, color: Colors.black),
+                ),
+                const SizedBox(height: 5),
+                const Text(
+                  "harish1@gamil.com",
+                  style: TextStyle(fontSize: 16, color: Colors.grey),
+                ),
+              ],
+            ),
+          ),
+
+          // User Information Section
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Card(
+              color: Colors.grey.shade100,
+              elevation: 3,
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: const <Widget>[
+                    Text(
+                      "User Information",
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black,
+                      ),
+                    ),
+                    SizedBox(height: 10),
+                    ListTile(
+                      leading: Icon(Icons.location_on, color: Colors.black),
+                      title: Text(
+                        "Location",
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      subtitle: Text("Jammikunta, Huzurabad, Nizampet"),
+                    ),
+                    Divider(),
+                    ListTile(
+                      leading: Icon(Icons.email, color: Colors.black),
+                      title: Text(
+                        "Email",
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      subtitle: Text("harish1@gamil.com"),
+                    ),
+                    Divider(),
+                    ListTile(
+                      leading: Icon(Icons.phone, color: Colors.black),
+                      title: Text(
+                        "Phone",
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      subtitle: Text("+91 1234567890"),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+
+          // Bottom Navigation Icons
+
+        ],
+      ),
+    );
+  }
+}
+
